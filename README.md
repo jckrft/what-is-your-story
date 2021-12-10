@@ -42,11 +42,11 @@ _**what is your story?** is a creative writing app that allows users to find ins
 
 ### Goals
 
-- _Lorem ipsum, dolor sit amet,_
-- _consectetur adipiscing elit._
-- _Phasellus dapibus fermentum risus vitae bibendum._
-- _Integer vel ipsum mollis odio sollicitudin ornare eu vel ex._
-- _etc._
+- _Full CRUD for user's written prompt responses_
+- _Create new prompts, users can only edit or delete prompts they created_
+- _Render all components to DOM_
+- _Fully functional backend with authentication_
+- _CSS styling, and Material UI_
 
 <br>
 
@@ -59,8 +59,7 @@ _**what is your story?** is a creative writing app that allows users to find ins
 |      React       | _Lorem ipsum dolor sit amet, consectetur._ |
 |   React Router   | _Lorem ipsum dolor sit amet, consectetur._ |
 |      Rails       | _Lorem ipsum dolor sit amet, consectetur._ |
-|     Express      | _Lorem ipsum dolor sit amet, consectetur._ |
-|  Express Router  | _Lorem ipsum dolor sit amet, consectetur._ |
+
 
 <br>
 
@@ -145,7 +144,8 @@ src
 
 ## Post-MVP
 
-> Use this section to document ideas you've had that would be fun (or necessary) for your Post-MVP. This will be helpful when you return to your project after graduation!
+- _Have a section for all users prompts and one for current users saved prompts and writing_
+- _Utilize Material UI for forms_
 
 ***
 
