@@ -73,15 +73,15 @@ _**what is your story?** is a creative writing app that allows users to find ins
 
 - Desktop Landing
 
-![landing](https://imgur.com/a/0BkSY9b)
+![landing](https://i.imgur.com/4nv6Rfr.png)
 
 - Ipad Landing
 
-![landing](https://imgur.com/a/OSdO0Ie)
+![landing](https://i.imgur.com/ZR49LhX.png)
 
 - Mobile Landing
 
-![landing](https://imgur.com/a/5blilst)
+![landing](https://i.imgur.com/RLLKiDJ.png)
 
 - Desktop Hero
 
