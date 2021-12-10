@@ -116,12 +116,24 @@ _**what is your story?** is a creative writing app that allows users to find ins
 src
 |__ assets/
       |__ fonts
-      |__ graphics
       |__ images
-      |__ mockups
 |__ components/
-      |__ Header.jsx
+      |__ Nav.jsx
+      |__ Footer.jsx
+      |__ Layout.jsx
+|__ screens/
+      |__ Prompts.jsx
+      |__ PromptCreate.jsx
+      |__ PromptResponse.jsx
+      |__ PromptResponseCreate.jsx
+      |__ PromptResponseEdit.jsx
+      |__ SignIn.jsx
+      |__ SignUp.jsx
 |__ services/
+      |__ apiConfig.jsx
+      |__ auth.jsx
+      |__ prompts.jsx
+      |__ promptResponses.jsx
 
 ```
 
