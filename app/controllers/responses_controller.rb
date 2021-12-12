@@ -5,17 +5,20 @@ class ResponsesController < ApplicationController
   def index
     @responses = Response.all
 
-    render json: @responses
+    render json: @responses, include: [:user, :topic]
   end
 
   # GET /responses/1
   def show
-    render json: @response
+    render json: @response, include: [:user, :topic]
   end
 
   # POST /responses
   def create
-    @response = Response.new(response_params)
+    # @response = Response.new(response_params)
+    @topic = Topic.find(params[:topic_id])
+    @response.user = @current_user
+    @response = Response.where(topic_id: @topic.id).new(response_params)
 
     if @response.save
       render json: @response, status: :created, location: @response
@@ -46,6 +49,6 @@ class ResponsesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def response_params
-      params.require(:response).permit(:response, :user_id, :topic)
+      params.require(:response).permit(:response, :user_id, :topic_id)
     end
 end
