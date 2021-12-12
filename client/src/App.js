@@ -1,22 +1,40 @@
 import './App.css';
 import Home from './screens/Home';
 import SignIn from './screens/SignIn';
+import SignUp from './screens/SignUp';
 import Layout from './components/Layout';
-import { Link, Switch, Route } from 'react-router-dom';
+import { Link, Switch, Route, useHistory } from 'react-router-dom';
+import { useState } from 'react';
+import { loginUser, registerUser } from './services/auth'
 
 function App() {
+  const [currentUser, setCurrentUser] = useState(null);
+  const history = useHistory()
+  
+  const handleLogin = async (formData) => {
+    const userData = await loginUser(formData);
+    setCurrentUser(userData);
+    history.push('/topics')
+  }
+
+  const handleRegister = async (formData) => {
+    const userData = await registerUser(formData) 
+    setCurrentUser(userData)
+    history.push('/topics')
+  }
+
   return (
     <div className="App">
-      <Layout>
+      <Layout currentUser={currentUser}>
       <Switch>
         {/* <Route path='/'>
           <Home />
         </Route> */}
         <Route path='/signin'>
-          <SignIn />
+          <SignIn handleLogin={handleLogin} />
         </Route>
         <Route path='/signup'>
-          <h1>sign up</h1>
+            <SignUp handleRegister={handleRegister}/>
         </Route>
         </Switch>
         </Layout>

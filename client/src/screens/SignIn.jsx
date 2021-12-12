@@ -1,23 +1,28 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-export default function SignIn() {
+export default function SignIn(props) {
   const [formData, setFormData] = useState({
     username: '',
     password: ''
   });
   const { username, password } = formData;
+  const { handleLogin } = props;
 
   const handleChange = (ev) => {
     const { name, value } = ev.target;
-    setFormData(prevState => ({
+    setFormData((prevState) => ({
       ...prevState,
       [name]: value
     }))
   }
+
+  
   return (
     <div>
-      <form>
+      <form onSubmit={(ev) => {
+        ev.preventDefault(); handleLogin(formData)
+      }}>
         <h3>sign in</h3>
         <label>username:
           <input
@@ -27,9 +32,9 @@ export default function SignIn() {
             onChange={handleChange} />
         </label>
         <br />
-        <label>username:
+        <label>password:
           <input
-            type='text'
+            type='password'
             name='password'
             value={password}
             onChange={handleChange} />
