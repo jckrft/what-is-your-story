@@ -12,8 +12,7 @@ class TopicsController < ApplicationController
 
   # GET /topics/1
   def show
-    render json: @topic
-    # , include: [:response => {:include => :user}]
+    render json: @topic, include: :responses
   end
 
   # POST /topics
@@ -46,8 +45,6 @@ class TopicsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_topic
       @topic = Topic.find(params[:id])
-      # @response = Response.find(params[:response_id])
-      # @user = User.find(params[:user_id])
     end
 
     def set_user_topic 

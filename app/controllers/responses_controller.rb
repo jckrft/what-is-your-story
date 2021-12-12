@@ -17,10 +17,10 @@ class ResponsesController < ApplicationController
 
   # POST /responses
   def create
-    # @response = Response.new(response_params)
-    # @topic = Topic.find(params[:topic_id])
+    @response = Response.new(response_params)
+    # @topic = Topic.find(response_params[:topic_id])
     # @response.user = @current_user
-    @response = Response.where(topic_id: @topic.id).new(response_params)
+    # @response = Response.where(topic_id: @topic.id).new(response_params)
 
     if @response.save
       render json: @response, status: :created, location: @response
@@ -47,7 +47,7 @@ class ResponsesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_response
       @response = Response.find(params[:id])
-      @topic = Topic.find(params[:topic_id])
+      # @topic = Topic.find(params[:topic_id])
     end
 
     # def set_user_response 
@@ -56,6 +56,6 @@ class ResponsesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def response_params
-      params.require(:response).permit(:response, :user_id, :topic)
+      params.require(:response).permit(:response, :user_id, :topic_id)
     end
 end
