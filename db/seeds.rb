@@ -16,11 +16,11 @@ Response.destroy_all
 
 puts "#{User.count} users created"
 
-@topic1 = Topic.create!topic: "Your character has always viewed the past with rose tinted glasses. Write about what happens when they're finally confronted with the truth."
-@topic2 = Topic.create!Topic: "Write a story about a character who's trying to fill an empty space, literally or metaphorically."
-@topic3 = Topic.create!topic: "Write a story inspired by a piece of music (without using any lyrics)."
-@topic4 = Topic.create!topic: "Write about a character seeking forgiveness for something that happened in the past."
-@topic5 = Topic.create!topic: "Write a story involving a character who cannot return home."
+@topic1 = Topic.create!(topic: "Your character has always viewed the past with rose tinted glasses. Write about what happens when they're finally confronted with the truth.", user: @admin)
+@topic2 = Topic.create!(topic: "Write a story about a character who's trying to fill an empty space, literally or metaphorically.", user: @admin)
+@topic3 = Topic.create!(topic: "Write a story inspired by a piece of music (without using any lyrics).", user: @user1)
+@topic4 = Topic.create!(topic: "Write about a character seeking forgiveness for something that happened in the past.", user: @user1)
+@topic5 = Topic.create!(topic: "Write a story involving a character who cannot return home.", user: @user2)
 
 puts "#{Topic.count} topics created"
 
@@ -48,7 +48,7 @@ Now, bring your awareness back to your fingers and toes.
 It was the camera flash that made your vision blur at graduation. It was the giddiness of being up on a stage, about to speak in front of so many people, that made you dizzy. It wasn't the hunger gnawing away at you, the residual blood rush behind your eyes from the ten minutes you'd just spent in the ladies' room ridding yourself of the celebratory breakfast you'd gulped down with your family before the ceremony. When was the last time you'd eaten before that? Two days ago? Three? It didn't matter, because your stomach, underneath your billowing robe, was finally flat. Your hard work had paid off; your father could finally be proud of you. He posed for pictures with you after the ceremony, one arm around your shoulders, and suggested you keep the hat on but lose the robe. It's not flattering on you.
 Well, you were almost happy. 
 When you're ready, open your eyes.", user: @user1, topic: @topic1)
-@Response2 = Response.create!(response: "I am spinning slowly in my tank, suspended in doped-up air, buoyant, bobbing. Piano music (Beethoven?) plays softly in the background. My eyes are closed, but if I opened them, I would see only pale yellow light enclosing me in a warm glow.
+@Response2 = Response.create!(response: "I am spinning slowly in my tank, suspended in doped-up air, buoyant, bobbing. Piano music-- Beethoven? plays softly in the background. My eyes are closed, but if I opened them, I would see only pale yellow light enclosing me in a warm glow.
 I like the piano music. It makes me feel calm. That, alongside the sedation. The Facility keeps mine light, because I prefer it that way, and because I am well-behaved. The Facility knows my ways, knows I don't misbehave. I have been here for a long time now. It must be years, though there is no sense of time. No calendar, no clock. Only the pale light washing over me, keeping me warm. 
 This morning, the Facility reminded me that my son will visit me today. He comes every week, at the same time. While the staff prepare me for his visit, they tell me he is good to me, compared to most of the others in here, at the Blessed Home facility, whose families have forgotten them. I nod and smile gently, murmuring the right response. They think my mind is feeble, like so many in here. I cannot see outside my tank, but the Facility can see inside, so I stay locked inside my mind. They cannot see inside my mind. In my mind, I am not suspended in a tank of gas and air. I go away, far from here.
 Where do I go? I go home, to my sprawling house in the countryside, with a red-tiled roof and ivy-covered archway, the mishmash of furniture and ornaments, collected over a lifetime, heavy with memories. For sixty years, my wife and I lived there, raised our child and grew old. We had a black cat with a white tummy called Cat Stevens. But then my wife died and my only son accused me of going senile.
@@ -158,5 +158,7 @@ Our last night in the house I could not sleep. I thought of Suzanne and the love
 She was packing her paints and easel when I came out of the room.  I placed my suitcase by the door. The sun was barely winning its fight against the darkening clouds. 
 We walked to the shore and sat with legs stretched toward the sea. The gulls mewed and circled the ocean. Suzanne wrapped herself in her paisley shawl, taking a drag from a joint. 
 “It's so beautiful,” she said, passing the joint to me. 
-“It is,” I said, taking a long pull, squinting my eyes toward the ocean, and waiting for the rain.", user: user2, topic: @topic3)
+“It is,” I said, taking a long pull, squinting my eyes toward the ocean, and waiting for the rain.", user: @user2, topic: @topic3)
+
+puts "#{Response.count} responses created"
 
