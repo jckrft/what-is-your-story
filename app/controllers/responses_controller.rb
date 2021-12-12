@@ -1,5 +1,7 @@
 class ResponsesController < ApplicationController
   before_action :set_response, only: [:show, :update, :destroy]
+  # before_action :authorize_request, only: :create
+  # before_action :set_user_response, only: [:update, :destroy]
 
   # GET /responses
   def index
@@ -16,8 +18,8 @@ class ResponsesController < ApplicationController
   # POST /responses
   def create
     # @response = Response.new(response_params)
-    @topic = Topic.find(params[:topic_id])
-    @response.user = @current_user
+    # @topic = Topic.find(params[:topic_id])
+    # @response.user = @current_user
     @response = Response.where(topic_id: @topic.id).new(response_params)
 
     if @response.save
@@ -45,10 +47,15 @@ class ResponsesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_response
       @response = Response.find(params[:id])
+      @topic = Topic.find(params[:topic_id])
     end
+
+    # def set_user_response 
+    #   @response = @current_user.responses.find(params[:id])
+    # end
 
     # Only allow a list of trusted parameters through.
     def response_params
-      params.require(:response).permit(:response, :user_id, :topic_id)
+      params.require(:response).permit(:response, :user_id, :topic)
     end
 end
