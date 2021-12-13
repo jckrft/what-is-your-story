@@ -3,6 +3,7 @@ import Home from './screens/Home';
 import SignIn from './screens/SignIn';
 import SignUp from './screens/SignUp';
 import Layout from './components/Layout';
+import MainContainer from './container/MainContainer';
 import { Link, Switch, Route, useHistory } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { loginUser, registerUser, verifyUser, removeToken } from './services/auth'
@@ -50,7 +51,10 @@ function App() {
         </Route>
         <Route path='/signup'>
             <SignUp handleRegister={handleRegister}/>
-        </Route>
+          </Route>
+          <Route path='/'>
+            <MainContainer />
+          </Route>
         </Switch>
         </Layout>
     </div>

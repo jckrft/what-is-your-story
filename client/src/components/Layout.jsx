@@ -15,10 +15,15 @@ export default function Layout(props) {
           </div> : 
       
           <div>
-            <Link to='/signin'>sign in </Link>
+            <Link to='/signin' >sign in </Link>
             <Link to='/signup'>| sign up</Link>
           </div>
       }
+      {currentUser &&
+        <nav>
+          <Link to='/topics'>topics</Link>
+          <Link to={`/saved/${currentUser.username}`}>saved</Link>
+        </nav>}
       {props.children}
     </div>
   )

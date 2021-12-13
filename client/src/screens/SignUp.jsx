@@ -38,54 +38,49 @@ export default function SignUp(props) {
     <div>
         <Button onClick={handleClickOpen}>
         sign up
-      </Button>
-      <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>sign up</DialogTitle>
-        <DialogContent>
-    
-            <TextField
-              autoFocus
-            margin="dense"
-            type='text'
-              name='username'
-              label='username'
-            value={username}
-                  onChange={handleChange} 
-
+        </Button>
+        <Dialog open={open} onClose={handleClose}>
+          <DialogTitle>sign up</DialogTitle>
+            <DialogContent>
+              <TextField
+                autoFocus
+                margin="dense"
+                type='text'
+                name='username'
+                label='username'
+                value={username}
+                onChange={handleChange} 
               />
-            <br />
-          <TextField
-                          autofocus
-                          margin="dense"
-        label='email'
-          
-            type='text'
-            name='email'
-            value={email}
-            onChange={handleChange} 
-          
-            />
-          <TextField
-                          autofocus
-                          margin="dense"
-        label='password'
-          
-            type='password'
-            name='password'
-            value={password}
-            onChange={handleChange} 
-            
-            />
-        <br />
-
-        </DialogContent>
-        <DialogActions>
-        <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={(ev) => {
-        ev.preventDefault();
-        handleRegister(formData)
-      }}>Submit</Button>
-        </DialogActions>
+              <br />
+              <TextField
+                autoFocus
+                margin="dense"
+                label='email'
+                type='text'
+                name='email'
+                value={email}
+                onChange={handleChange} 
+              />
+              <br />
+              <TextField
+                autoFocus
+                margin="dense"
+                label='password'
+                type='password'
+                name='password'
+                value={password}
+                onChange={handleChange} 
+              />
+              <br />
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleClose}>Cancel</Button>
+              <Button onClick={(ev) => {
+                ev.preventDefault();
+                handleRegister(formData)}}>
+                Submit
+              </Button>
+            </DialogActions>
         </Dialog>
     </div>
   )
