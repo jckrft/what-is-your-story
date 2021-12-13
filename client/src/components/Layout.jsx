@@ -3,14 +3,15 @@ import { Link } from 'react-router-dom'
 
 
 export default function Layout(props) {
-  const { currentUser } = props;
+  const { currentUser, handleLogout } = props;
   return (
     <div>
       <h1>what is your story?</h1>
       {
         currentUser ? 
           <div className='welcome'>
-            <p>welcome {currentUser.username}</p>
+            <p>hello {currentUser.username}</p>
+            <button onClick={handleLogout}>logout</button>
           </div> : 
       
           <div>
