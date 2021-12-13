@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
   before_action :set_topic, only: :show
-  before_action :authorize_request, only: :create
+  before_action :authorize_request, only: [:create, :update]
   before_action :set_user_topic, only: :update
 
   # GET /topics

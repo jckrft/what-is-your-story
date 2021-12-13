@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
@@ -6,21 +5,33 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import { useState, useEffect } from 'react'
+import {useParams} from 'react-router-dom'
 
-export default function TopicCreate(props) {
+export default function TopicEdit({ topics, handleTopicUpdate }) {
   const [formData, setFormData] = useState({
     topic: '',
   })
+
   const { topic } = formData;
-  const {handleTopicCreate} = props
+  const { id } = useParams();
+
+
+  useEffect(() => {
+    const prefillFormData = () => {
+      const topicItem = topics.find((topic) => topic.id === Number(id));
+      setFormData({ topic: topicItem.topic });
+    };
+    if (topics.length) prefillFormData();
+  }, [topics, id]);
 
   const handleChange = (ev) => {
     const { name, value } = ev.target;
     setFormData((prevState) => ({
       ...prevState,
-      [name]: value
-    }))
-  }
+      [name]: value,
+    }));
+  };
 
   const [open, setOpen] = useState(false);
 
@@ -31,13 +42,14 @@ export default function TopicCreate(props) {
   const handleClose = () => {
     setOpen(false);
   };
+
   return (
     <div>
-      <Button onClick={handleClickOpen}>
+            <Button onClick={handleClickOpen}>
         create
         </Button>
         <Dialog open={open} onClose={handleClose}>
-          <DialogTitle>add a topic</DialogTitle>
+          <DialogTitle>edit your topic</DialogTitle>
             <DialogContent>
               <TextField
                 autoFocus
@@ -57,7 +69,7 @@ export default function TopicCreate(props) {
           <Button
             onClick={(ev) => {
                 ev.preventDefault();
-              handleTopicCreate(formData)
+              handleTopicUpdate(id, formData)
             }}
           >
                 Submit
