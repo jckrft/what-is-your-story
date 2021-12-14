@@ -7,10 +7,14 @@ export default function Topics({topics, currentUser}) {
       <h3>topics</h3>
       {topics.map((topic) => (
         <div key={topic.id}>
-        <p>{topic.topic}</p>
+          <p>{topic.topic}</p>
+          {currentUser?.id === topic.user_id && (
+            <>
         <Link to={`/topics/${topic.id}/edit`}>
           <button>edit</button>
-        </Link>
+              </Link>
+              </>
+            )}
       </div>
       ))}
       

@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
 import { Switch, Route, useHistory } from 'react-router-dom';
-import {getAllTopics, postTopic, putTopic} from '../services/topics'
+import { getAllTopics, postTopic, putTopic } from '../services/topics'
+import { getAllResponses } from '../services/responses';
 import Topics from '../screens/Topics'
 import TopicCreate from '../screens/TopicCreate';
 import TopicEdit from '../screens/TopicEdit'
+import Responses from '../screens/Responses';
 
 export default function MainContainer({currentUser}) {
   const [topics, setTopics] = useState([])
@@ -17,6 +19,14 @@ export default function MainContainer({currentUser}) {
     };
     fetchTopics();
   }, [])
+
+  useEffect(() => {
+    const fetchResponses = async () => {
+      const responseList = await getAllResponses();
+      setResponses(responseList);
+    };
+    fetchResponses();
+  }, []);
 
   const handleTopicCreate = async (formData) => {
     const newTopic = await postTopic(formData);
@@ -33,6 +43,8 @@ export default function MainContainer({currentUser}) {
     );
     history.push('/topics');
   }
+
+
 
   return (
     <div>
@@ -52,6 +64,12 @@ export default function MainContainer({currentUser}) {
         <Route path='/topics'>
           <Topics
             topics={topics}
+            currentUser={currentUser}
+          />
+        </Route>
+        <Route path='/saved/:username'>
+          <Responses
+            responses={responses}
             currentUser={currentUser}
           />
         </Route>

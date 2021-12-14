@@ -1,6 +1,6 @@
 class ResponsesController < ApplicationController
   before_action :set_response, only: [:show, :update, :destroy]
-  before_action :authorize_request, only: [:create, :update. :destroy]
+  # before_action :authorize_request, only: [:index, :create, :update. :destroy]
   # before_action :set_user_response, only: [:update, :destroy]
 
   # GET /responses

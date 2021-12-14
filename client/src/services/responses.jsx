@@ -10,7 +10,7 @@ export const getOneResponse = async (id) => {
   return resp.data;
 };
 
-export const postResponse = async (responseData) => {
+export const postResponse = async (id, responseData) => {
   const resp = await api.post(`/topics/${id}/responses`, { response: responseData });
   return resp.data;
 };
