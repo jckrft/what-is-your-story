@@ -17,13 +17,13 @@ export default function TopicEdit({ topics, handleTopicUpdate }) {
   const { id } = useParams();
 
 
-  useEffect(() => {
-    const prefillFormData = () => {
-      const topicItem = topics.find((topic) => topic.id === Number(id));
-      setFormData({ topic: topicItem.topic });
-    };
-    if (topics.length) prefillFormData();
-  }, [topics, id]);
+  // useEffect(() => {
+  //   const prefillFormData = () => {
+  //     const topicItem = topics.find((topic) => topic.id === Number(id));
+  //     setFormData({ topic: topicItem.topic });
+  //   };
+  //   if (topics.length) prefillFormData();
+  // }, [topics, id]);
 
   const handleChange = (ev) => {
     const { name, value } = ev.target;
@@ -46,7 +46,7 @@ export default function TopicEdit({ topics, handleTopicUpdate }) {
   return (
     <div>
             <Button onClick={handleClickOpen}>
-        create
+        edit
         </Button>
         <Dialog open={open} onClose={handleClose}>
           <DialogTitle>edit your topic</DialogTitle>

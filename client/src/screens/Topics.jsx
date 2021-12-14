@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import TopicEdit from '../components/TopicEdit'
 
 export default function Topics({topics, currentUser}) {
   return (
@@ -7,12 +8,15 @@ export default function Topics({topics, currentUser}) {
       <h3>topics</h3>
       {topics.map((topic) => (
         <div key={topic.id}>
-          <p>{topic.topic}</p>
+          <Link to={`/topics/${topic.id}`}>
+            <p>{topic.topic}</p>
+            </Link>
           {currentUser?.id === topic.user_id && (
             <>
-        <Link to={`/topics/${topic.id}/edit`}>
+              <TopicEdit />
+        {/* <Link to={`/topics/${topic.id}/edit`}>
           <button>edit</button>
-              </Link>
+              </Link> */}
               </>
             )}
       </div>

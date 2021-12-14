@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Responses({ responses, currentUser }) {
+export default function MyResponses({ responses, currentUser }) {
   console.log(responses, currentUser)
   return (
     <div>

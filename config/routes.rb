@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   get '/auth/verify', to: 'authentications#verify'
   resources :users, only: [:create, :show]
   resources :topics do
-    resources :responses, shallow: true
+    resources :responses, only: :create
   end
+  resources :responses, except: :create
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

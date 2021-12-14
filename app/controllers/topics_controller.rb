@@ -12,7 +12,7 @@ class TopicsController < ApplicationController
 
   # GET /topics/1
   def show
-    render json: @topic, include: :responses
+    render json: @topic, include: {responses: {include: :user}}
   end
 
   # POST /topics
@@ -53,6 +53,6 @@ class TopicsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def topic_params
-      params.require(:topic).permit(:user_id, :topic)
+      params.require(:topic).permit(:topic)
     end
 end

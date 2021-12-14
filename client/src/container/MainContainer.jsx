@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react'
 import { Switch, Route, useHistory } from 'react-router-dom';
 import { getAllTopics, postTopic, putTopic } from '../services/topics'
-import { getAllResponses } from '../services/responses';
+import { getAllResponses, postResponse } from '../services/responses';
 import Topics from '../screens/Topics'
+import Topic from '../screens/Topic';
 import TopicCreate from '../screens/TopicCreate';
-import TopicEdit from '../screens/TopicEdit'
-import Responses from '../screens/Responses';
+import TopicEdit from '../components/TopicEdit'
+import MyResponses from '../screens/MyResponses';
+import ResponseCreate from '../screens/ResponseCreate';
 
 export default function MainContainer({currentUser}) {
   const [topics, setTopics] = useState([])
@@ -46,9 +48,14 @@ export default function MainContainer({currentUser}) {
 
 
 
+
+
   return (
     <div>
       <Switch>
+        <Route path='/topics/:id/responses/new'>
+          <ResponseCreate />
+        </Route>
         <Route path='/topics/:id/edit'>
           <TopicEdit
             topics={topics}
@@ -61,6 +68,13 @@ export default function MainContainer({currentUser}) {
             handleTopicCreate={handleTopicCreate}
           /> 
         </Route>
+        <Route path='/topics/:id'>
+          <Topic
+            topics={topics}
+            responses={responses}
+            currentUser={currentUser}
+          />
+        </Route>
         <Route path='/topics'>
           <Topics
             topics={topics}
@@ -68,9 +82,9 @@ export default function MainContainer({currentUser}) {
           />
         </Route>
         <Route path='/saved/:username'>
-          <Responses
-            responses={responses}
-            currentUser={currentUser}
+          <MyResponses
+            // responses={responses}
+            // currentUser={currentUser}
           />
         </Route>
       </Switch>

@@ -1,14 +1,13 @@
 class ResponsesController < ApplicationController
   before_action :set_response, only: [:show, :update, :destroy]
-  before_action :authorize_request, only: [:create, :update, :destroy]
+  before_action :authorize_request, only: [:index, :create, :update, :destroy]
   # before_action :set_user_response, only: [:update, :destroy]
 
   # GET /topics/:topic_id/responses
   def index
-    @topic = Topic.find(params[:topic_id])
-    @responses = @topic.responses
+    @responses = @current_user.responses
 
-    render json: @responses, include: [:user, :topic]
+    render json: @responses, include: :topic
   end
 
   # GET /responses/1
