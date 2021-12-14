@@ -1,4 +1,12 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: :show
+  before_action :authorize_request, only: :show
+
+  #GET /users/:id
+  def show
+    render json: @user, include: :responses
+  end
+
   # POST /users
   def create
     @user = User.new(user_params)
@@ -15,6 +23,9 @@ class UsersController < ApplicationController
   end
 
   private
+  def set_user
+    @user = User.find(params[:id])
+  end
 
     # Only allow a list of trusted parameters through.
     def user_params

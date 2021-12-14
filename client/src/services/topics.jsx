@@ -19,3 +19,8 @@ export const putTopic = async (id, topicData) => {
   const resp = await api.put(`/topics/${id}`, { topic: topicData });
   return resp.data;
 };
+
+export const addResponseToTopic = async (id, responseData) => {
+  const resp = await api.post(`/topics/${id}/responses`, { response: responseData })
+  return resp.data;
+}

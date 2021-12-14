@@ -1,7 +1,7 @@
 class TopicsController < ApplicationController
-  before_action :set_topic, only: :show
+  before_action :set_topic, only: [:show, :update]
   before_action :authorize_request, only: [:create, :update]
-  before_action :set_user_topic, only: :update
+  # before_action :set_user_topic, only: :update
 
   # GET /topics
   def index
@@ -47,12 +47,12 @@ class TopicsController < ApplicationController
       @topic = Topic.find(params[:id])
     end
 
-    def set_user_topic 
-      @topic = @current_user.topics.find(params[:id])
-    end
+    # def set_user_topic 
+    #   @topic = @current_user.topics.find(params[:id])
+    # end
 
     # Only allow a list of trusted parameters through.
     def topic_params
-      params.require(:topic).permit(:topic)
+      params.require(:topic).permit(:user_id, :topic)
     end
 end

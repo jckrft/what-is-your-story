@@ -1,11 +1,12 @@
 class ResponsesController < ApplicationController
   before_action :set_response, only: [:show, :update, :destroy]
-  # before_action :authorize_request, only: [:index, :create, :update. :destroy]
+  before_action :authorize_request, only: [:create, :update, :destroy]
   # before_action :set_user_response, only: [:update, :destroy]
 
-  # GET /responses
+  # GET /topics/:topic_id/responses
   def index
-    @responses = Response.all
+    @topic = Topic.find(params[:topic_id])
+    @responses = @topic.responses
 
     render json: @responses, include: [:user, :topic]
   end
@@ -15,15 +16,16 @@ class ResponsesController < ApplicationController
     render json: @response, include: [:user, :topic]
   end
 
-  # POST /responses
+  # POST /topics/:topic_id/responses
   def create
+    @topic = Topic.find(params[:topic_id])
     @response = Response.new(response_params)
-    # @topic = Topic.find(response_params[:topic_id])
-    # @response.user = @current_user
-    # @response = Response.where(topic_id: @topic.id).new(response_params)
+    @response.user = @current_user
+    @response.topic = @topic
+
 
     if @response.save
-      render json: @response, status: :created, location: @response
+      render json: @response, status: :created
     else
       render json: @response.errors, status: :unprocessable_entity
     end
