@@ -6,10 +6,11 @@ import { Link } from 'react-router-dom'
 
 export default function Landing() {
   return (
-    <div>
-      <div className='landing-logo'>
-        <h1>what is your story?</h1>
+    <div className='landing'>
+      <div className='logo'>
+        <h1 className='landing-logo'>what is your story?</h1>
       </div>
+      <div className='description-box'>
       <div className='inspire'>
         <p>get inspired</p>
         <img src={head} alt='head' />
@@ -24,7 +25,8 @@ export default function Landing() {
         <p>save it for later</p>
         <img src={heart} alt='heart' />
         <p>save your past work in your account, and browse other user's work</p>
-      </div>
+        </div>
+        </div>
     </div>
   )
 }
