@@ -6,7 +6,7 @@ import Footer from './Footer';
 
 
 export default function Layout(props) {
-  const { currentUser, handleLogout } = props;
+  const { currentUser, handleLogout, setLoginOpen } = props;
   return (
     <div>
       {
@@ -18,7 +18,10 @@ export default function Layout(props) {
           </div> : 
       
           <div>
-                        <Link to='/signin' >sign in </Link>
+            <a href='#' onClick={(e) => {
+              e.preventDefault();
+              setLoginOpen(true)
+                        } } >sign in </a>
             <Link to='/signup'>| sign up</Link>
             {/* <SignIn />
             <SignUp /> */}

@@ -83,13 +83,6 @@ export default function MainContainer({currentUser}) {
         <Route path='/topics/:id/responses/new'>
           <ResponseCreate />
         </Route>
-        <Route path='/topics/:id/edit'>
-          <TopicEdit
-            topics={topics}
-            handleTopicUpdate={handleTopicUpdate}
-            currentUser={currentUser}
-          />
-        </Route>
         <Route path='/topics/new'>
           <TopicCreate
             handleTopicCreate={handleTopicCreate}
@@ -100,12 +93,13 @@ export default function MainContainer({currentUser}) {
             topics={topics}
             // responses={responses}
             currentUser={currentUser}
-          />
+            />
         </Route>
         <Route path='/topics'>
           <Topics
             topics={topics}
             currentUser={currentUser}
+            handleTopicUpdate={handleTopicUpdate}
             handleTopicDelete={handleTopicDelete}
           />
         </Route>

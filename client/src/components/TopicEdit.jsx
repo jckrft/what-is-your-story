@@ -1,29 +1,30 @@
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
-import { useState, useEffect } from 'react'
-import {useParams} from 'react-router-dom'
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
-export default function TopicEdit({ topics, handleTopicUpdate }) {
+export default function TopicEdit({ handleTopicUpdate, handleClose, open, selectedTopic }) {
   const [formData, setFormData] = useState({
-    topic: '',
-  })
+    topic: "",
+  });
 
   const { topic } = formData;
-  const { id } = useParams();
+  const { id, ...rest} = selectedTopic
+
+  useEffect(() => {
+    const prefillFormData = () => {
+      
+      setFormData({ topic: rest.topic });
+    };
+    if (id) prefillFormData();
+  }, [selectedTopic, id, rest]);
 
 
-  // useEffect(() => {
-  //   const prefillFormData = () => {
-  //     const topicItem = topics.find((topic) => topic.id === Number(id));
-  //     setFormData({ topic: topicItem.topic });
-  //   };
-  //   if (topics.length) prefillFormData();
-  // }, [topics, id]);
 
   const handleChange = (ev) => {
     const { name, value } = ev.target;
@@ -33,50 +34,37 @@ export default function TopicEdit({ topics, handleTopicUpdate }) {
     }));
   };
 
-  const [open, setOpen] = useState(false);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
   return (
     <div>
-            <Button onClick={handleClickOpen}>
-        edit
-        </Button>
-        <Dialog open={open} onClose={handleClose}>
-          <DialogTitle>edit your topic</DialogTitle>
-            <DialogContent>
-              <TextField
-                autoFocus
-                margin="dense"
-                type='text'
-                name='topic'
-                label='topic'
-              id={'topic'}
-              value={formData.topic}
-                fullWidth
-                variant="standard"
-                onChange={handleChange} 
-              />
-              <br />
-            </DialogContent>
-            <DialogActions>
-              <Button onClick={handleClose}>Cancel</Button>
+      <Dialog open={open} onClose={handleClose}>
+        <DialogTitle>edit your topic</DialogTitle>
+        <DialogContent>
+          <TextField
+            autoFocus
+            margin="dense"
+            type="text"
+            name="topic"
+            label="topic"
+            id={"topic"}
+            value={formData.topic}
+            fullWidth
+            variant="standard"
+            onChange={handleChange}
+          />
+          <br />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>Cancel</Button>
           <Button
             onClick={(ev) => {
-                ev.preventDefault();
-              handleTopicUpdate(id, formData)
+              ev.preventDefault();
+              handleTopicUpdate(id, formData);
             }}
           >
-                Submit
-              </Button>
-            </DialogActions>
-        </Dialog>
+            Submit
+          </Button>
+        </DialogActions>
+      </Dialog>
     </div>
-  )
+  );
 }

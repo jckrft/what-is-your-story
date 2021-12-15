@@ -10,7 +10,8 @@ import { loginUser, registerUser, verifyUser, removeToken } from './services/aut
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
-  const history = useHistory()
+  const [loginOpen, setLoginOpen] = useState(false);
+  const history = useHistory();
 
   useEffect(() => {
     const handleVerify = async () => {
@@ -23,6 +24,7 @@ function App() {
   const handleLogin = async (formData) => {
     const userData = await loginUser(formData);
     setCurrentUser(userData);
+    setLoginOpen(false)
     history.push('/topics')
   }
 
@@ -39,15 +41,20 @@ function App() {
     history.push('/')
   }
 
+
+
   return (
     <div className="App">
       <Switch>
-      <Layout currentUser={currentUser} handleLogout={handleLogout}>
+        <Layout
+          currentUser={currentUser}
+          handleLogout={handleLogout}
+          setLoginOpen={setLoginOpen}
+        >
         {/* <Route path='/'>
           <Landing />
         </Route> */}
         <Route path='/signin'>
-          <SignIn handleLogin={handleLogin} />
         </Route>
         <Route path='/signup'>
             <SignUp handleRegister={handleRegister}/>
@@ -58,6 +65,7 @@ function App() {
           </Route>
           </Layout>
         </Switch>
+      <SignIn handleLogin={handleLogin} open={loginOpen} handleClose={() => setLoginOpen(false)}/>
     </div>
   );
 }

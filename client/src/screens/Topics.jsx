@@ -1,8 +1,11 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import TopicEdit from '../components/TopicEdit'
+import {useState} from "react";
+import { Link } from "react-router-dom";
+import TopicEdit from "../components/TopicEdit";
 
-export default function Topics({topics, handleTopicDelete, currentUser}) {
+export default function Topics({ topics, handleTopicDelete, handleTopicUpdate, currentUser }) {
+  const [open, setOpen] = useState(false);
+  const [selectedTopic, setSelectedTopic] = useState({})
+
   return (
     <div>
       <h3>topics</h3>
@@ -10,28 +13,35 @@ export default function Topics({topics, handleTopicDelete, currentUser}) {
         <div key={topic.id}>
           <Link to={`/topics/${topic.id}`}>
             <p>{topic.topic}</p>
-            </Link>
+          </Link>
           {currentUser?.id === topic.user_id && (
             <>
-              
               {/* <TopicEdit /> */}
-        <Link to={`/topics/${topic.id}/edit`}>
-          <button>edit</button>
-              </Link>
-              <button onClick={() => handleTopicDelete(topic.id)}>Delete</button>
-              </>
-            )}
-      </div>
+              
+                <button onClick={() => {
+                  setOpen(true)
+                  setSelectedTopic(topic)
+                }}>edit</button>
+              <button onClick={() => handleTopicDelete(topic.id)}>
+                Delete
+              </button>
+            </>
+          )}
+        </div>
       ))}
-      
-      
-      <Link to='/topics/new'>
+
+      <Link to="/topics/new">
         <button>create</button>
       </Link>
+      <TopicEdit
+        handleTopicUpdate={handleTopicUpdate}
+        handleClose={() => setOpen(false)}
+        open={open}
+        selectedTopic={selectedTopic}
+      />
     </div>
-  )
+  );
 }
-
 
 // { currentUser?.id === topic.user_id && (
 //   <>

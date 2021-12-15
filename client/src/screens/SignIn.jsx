@@ -14,7 +14,7 @@ export default function SignIn(props) {
     password: ''
   });
   const { username, password } = formData;
-  const { handleLogin } = props;
+  const { handleLogin, open, handleClose } = props;
 
   const handleChange = (ev) => {
     const { name, value } = ev.target;
@@ -24,22 +24,10 @@ export default function SignIn(props) {
     }))
   }
 
-  const [open, setOpen] = useState(false);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
 
 
   return (
     <div>
-        <Button onClick={handleClickOpen}>
-        sign in
-        </Button>
         <Dialog open={open} onClose={handleClose}>
           <DialogTitle>sign in</DialogTitle>
             <DialogContent>
