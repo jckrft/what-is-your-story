@@ -80,8 +80,10 @@ h1 {
 .inspire {
   background-color: rgba(255, 255, 255, .15);  
   backdrop-filter: blur(5px);
-  padding: 20px;
-  margin: 10px;
+  padding: 15px;
+  margin: 50px;
+  width: 220px;
+  border-radius: 25%;
 }
 
 .inspire img{
@@ -92,6 +94,10 @@ h1 {
 .write {
   background-color: rgba(255, 255, 255, .15);  
   backdrop-filter: blur(5px);
+  padding: 15px;
+  margin: 50px;
+  width: 220px;
+  border-radius: 25%;
 }
 
 .write img{
@@ -102,6 +108,10 @@ h1 {
 .save {
   background-color: rgba(255, 255, 255, .15);  
   backdrop-filter: blur(5px);
+  padding: 15px;
+  margin: 50px;
+  width: 220px;
+  border-radius: 25%;
 }
 
 .save img{

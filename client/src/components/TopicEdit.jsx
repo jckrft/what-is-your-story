@@ -12,17 +12,17 @@ export default function TopicEdit({ handleTopicUpdate, handleClose, open, select
   const [formData, setFormData] = useState({
     topic: "",
   });
-
+  const [postId, setPostId] = useState('')
   const { topic } = formData;
-  const { id, ...rest} = selectedTopic
-
+  
   useEffect(() => {
     const prefillFormData = () => {
-      
+      const { id, ...rest} = selectedTopic
+      setPostId(id)
       setFormData({ topic: rest.topic });
     };
-    if (id) prefillFormData();
-  }, [selectedTopic, id, rest]);
+    if (selectedTopic) prefillFormData();
+  }, [selectedTopic]);
 
 
 
@@ -58,7 +58,8 @@ export default function TopicEdit({ handleTopicUpdate, handleClose, open, select
           <Button
             onClick={(ev) => {
               ev.preventDefault();
-              handleTopicUpdate(id, formData);
+              handleTopicUpdate(postId, formData);
+              handleClose()
             }}
           >
             Submit
