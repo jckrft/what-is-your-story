@@ -57,7 +57,8 @@ export default function TopicEdit({ topics, handleTopicUpdate }) {
                 type='text'
                 name='topic'
                 label='topic'
-                id={'topic'}
+              id={'topic'}
+              value={formData.topic}
                 fullWidth
                 variant="standard"
                 onChange={handleChange} 

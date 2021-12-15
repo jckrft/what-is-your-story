@@ -1,5 +1,5 @@
 import './App.css';
-import Home from './screens/Home';
+import Landing from './screens/landing/Landing';
 import SignIn from './screens/SignIn';
 import SignUp from './screens/SignUp';
 import Layout from './components/Layout';
@@ -41,22 +41,23 @@ function App() {
 
   return (
     <div className="App">
-      <Layout currentUser={currentUser} handleLogout={handleLogout}>
       <Switch>
+      <Layout currentUser={currentUser} handleLogout={handleLogout}>
         {/* <Route path='/'>
-          <Home />
+          <Landing />
         </Route> */}
         <Route path='/signin'>
           <SignIn handleLogin={handleLogin} />
         </Route>
         <Route path='/signup'>
             <SignUp handleRegister={handleRegister}/>
-          </Route>
+        </Route>
+
           <Route path='/'>
-            <MainContainer currentUser={currentUser}/>
+            <MainContainer currentUser={currentUser} />
           </Route>
+          </Layout>
         </Switch>
-        </Layout>
     </div>
   );
 }

@@ -9,6 +9,7 @@ import TopicEdit from '../components/TopicEdit'
 import MyResponses from '../screens/MyResponses';
 import ResponseCreate from '../screens/ResponseCreate';
 import ResponseEdit from '../screens/ResponseEdit';
+import Landing from '../screens/landing/Landing';
 
 
 export default function MainContainer({currentUser}) {
@@ -114,6 +115,9 @@ export default function MainContainer({currentUser}) {
             // handleResponseDelete={handleResponseDelete}
             currentUser={currentUser}
           />
+        </Route>
+        <Route path='/'>
+          <Landing />
         </Route>
       </Switch>
     </div>

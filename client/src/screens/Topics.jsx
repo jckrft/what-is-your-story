@@ -13,6 +13,7 @@ export default function Topics({topics, handleTopicDelete, currentUser}) {
             </Link>
           {currentUser?.id === topic.user_id && (
             <>
+              
               {/* <TopicEdit /> */}
         <Link to={`/topics/${topic.id}/edit`}>
           <button>edit</button>
