@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
-  before_action :set_topic, only: [:show, :update]
-  before_action :authorize_request, only: [:create, :update]
+  before_action :set_topic, only: [:show, :update, :destroy]
+  before_action :authorize_request, only: [:create, :update, :destroy]
   # before_action :set_user_topic, only: :update
 
   # GET /topics
@@ -36,10 +36,10 @@ class TopicsController < ApplicationController
     end
   end
 
-  # # DELETE /topics/1
-  # def destroy
-  #   @topic.destroy
-  # end
+  # DELETE /topics/1
+  def destroy
+    @topic.destroy
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

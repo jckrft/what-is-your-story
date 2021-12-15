@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import TopicEdit from '../components/TopicEdit'
 
-export default function Topics({topics, currentUser}) {
+export default function Topics({topics, handleTopicDelete, currentUser}) {
   return (
     <div>
       <h3>topics</h3>
@@ -13,10 +13,11 @@ export default function Topics({topics, currentUser}) {
             </Link>
           {currentUser?.id === topic.user_id && (
             <>
-              <TopicEdit />
-        {/* <Link to={`/topics/${topic.id}/edit`}>
+              {/* <TopicEdit /> */}
+        <Link to={`/topics/${topic.id}/edit`}>
           <button>edit</button>
-              </Link> */}
+              </Link>
+              <button onClick={() => handleTopicDelete(topic.id)}>Delete</button>
               </>
             )}
       </div>

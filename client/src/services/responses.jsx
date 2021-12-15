@@ -1,6 +1,6 @@
 import api from './apiConfig';
 
-export const getAllResponses = async () => {
+export const getUserResponses = async () => {
   const resp = await api.get('/responses');
   return resp.data;
 };
@@ -16,10 +16,11 @@ export const postResponse = async (id, responseData) => {
 };
 
 export const putResponse = async (id, responseData) => {
-  const resp = await api.put(`/topics/${id}/responses${id}`, { response: responseData });
+  const resp = await api.put(`/responses/${id}`, { response: responseData });
   return resp.data;
 };
 
 export const deleteResponse = async (id) => {
-  await api.delete(`/topics/${id}/responses/${id}`);
+  const resp = await api.delete(`/responses/${id}`);
+  return resp.data;
 };
