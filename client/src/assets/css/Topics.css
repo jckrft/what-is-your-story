@@ -1,0 +1,16 @@
+.topic-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+  grid-gap: 10px;
+  margin: 8rem 10%;
+}
+
+.topic-card {
+  background: #d6d6d6;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,102 @@
+body {
+  background-color:#3E94CF;
+}
+
+nav {
+  /* display:flex;
+  align-items: center; */
+  margin: auto;
+}
+
+.welcome {
+  display: flex;
+  width:100%;
+
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+}
+
+.discover-link {
+  text-decoration: none;
+}
+
+.discover-link:hover {
+  text-decoration: underline;
+}
+.logout-button {
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  font-family: 'Lato', sans-serif;
+}
+
+.logout-button:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.welcome-logo {
+  font-size: 2.5rem;
+  -webkit-text-stroke-width: .01px;
+  -webkit-text-stroke-color: rgb(164, 164, 164);
+  animation: pulsate 1.5s infinite alternate;  
+  border: none;
+  border-radius: 1rem;
+  padding: 0.2em;
+  width: 200px;
+  margin: 35px;
+  color: #fff;
+  text-shadow:
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px #fff,
+    0 0 82px #fff,
+    0 0 92px #fff,
+    0 0 102px #fff,
+    0 0 151px #676767;
+}
+
+h1 {
+  box-shadow: 0 0 .2rem #fff,
+  0 0 .1rem #fff,
+  0 0 1rem #fff,
+  0 0 0.4rem #fff,
+  0 0 1.8rem #fff,
+  inset 0 0 .8 rem #fff; 
+}
+
+@keyframes pulsate {
+    
+  100% {
+
+      text-shadow:
+      0 0 4px #fff,
+      0 0 11px #fff,
+      0 0 19px #fff,
+      0 0 40px #fff,
+      0 0 80px #fff,
+      0 0 90px #fff,
+      0 0 100px #fff,
+      0 0 150px #fff;
+  
+  }
+  
+  0% {
+
+    text-shadow:
+    0 0 2px #fff,
+    0 0 4px #fff,
+    0 0 6px #fff,
+    0 0 10px #fff,
+    0 0 45px #fff,
+    0 0 55px #fff,
+    0 0 70px #fff,
+    0 0 80px #fff;
+
+}
+}

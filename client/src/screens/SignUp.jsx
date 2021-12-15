@@ -4,7 +4,6 @@ import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
 export default function SignUp(props) {
@@ -14,7 +13,7 @@ export default function SignUp(props) {
     password: ''
   });
   const { username, email, password } = formData;
-  const { handleRegister } = props;
+  const { handleRegister, open, handleClose } = props;
 
   const handleChange = (ev) => {
     const { name, value } = ev.target;
@@ -23,22 +22,9 @@ export default function SignUp(props) {
       [name]: value
     }))
   }
-
-  const [open, setOpen] = useState(false);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
   
   return (
     <div>
-        <Button onClick={handleClickOpen}>
-        sign up
-        </Button>
         <Dialog open={open} onClose={handleClose}>
           <DialogTitle>sign up</DialogTitle>
             <DialogContent>
