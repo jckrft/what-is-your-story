@@ -12,17 +12,17 @@ export default function Landing() {
       </div>
       <div className='description-box'>
       <div className='inspire'>
-        <p>get inspired</p>
+        <p className='inspire-tag'>get inspired</p>
         <img src={head} alt='head' />
         <p>read through the available writing prompts or contribute your own</p>
       </div>
       <div className='write'>
-        <p>write it down</p>
+        <p className='write-tag'>write it down</p>
         <img src={typing} alt='typing' />
         <p>when you find something that stirs you, start writing!</p>
       </div>
       <div className='save'>
-        <p>save it for later</p>
+        <p className='save-tag'>save it for later</p>
         <img src={heart} alt='heart' />
         <p>save your past work in your account, and browse other user's work</p>
         </div>
