@@ -1,0 +1,13 @@
+.edit-form {
+  display: flex;
+	flex-direction: column;
+	width: 80%;
+	margin: 0 auto;
+  padding: 30px;
+}
+
+.edit-textfield {
+  overflow-y: auto;
+  min-height: 80px;
+  max-height: 300px;
+}

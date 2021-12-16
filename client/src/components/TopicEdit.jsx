@@ -36,7 +36,7 @@ export default function TopicEdit({ handleTopicUpdate, handleClose, open, select
 
   return (
     <div>
-      <Dialog open={open} onClose={handleClose}>
+      <Dialog open={open} onClose={handleClose} className='topic-edit-modal'>
         <DialogTitle>edit your topic</DialogTitle>
         <DialogContent>
           <TextField
@@ -48,6 +48,7 @@ export default function TopicEdit({ handleTopicUpdate, handleClose, open, select
             id={"topic"}
             value={formData.topic}
             fullWidth
+            multiline
             variant="standard"
             onChange={handleChange}
           />
