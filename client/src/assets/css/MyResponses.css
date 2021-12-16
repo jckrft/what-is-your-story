@@ -1,0 +1,25 @@
+.response-card {
+  display:flex;
+  justify-content: center;
+  margin: auto;
+  width:700px;
+  overflow-y: auto;
+  min-height: 80px;
+  max-height: 300px;
+}
+
+.response-buttons {
+  padding: 30px;
+}
+
+.response-edit {
+  background: none!important;
+  border: none;
+  cursor: pointer;
+}
+
+.response-delete {
+  background: none!important;
+  border: none;
+  cursor: pointer;
+}

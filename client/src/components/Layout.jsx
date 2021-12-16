@@ -15,7 +15,7 @@ export default function Layout(props) {
           <nav>
             <h1 className="welcome-logo">what is your story?</h1>
             <div className="nav">
-              <Link to={`/saved/${currentUser.username}`}>
+              <Link to={`/saved/${currentUser.username}`}className="account-icon">
                 <AccountCircleIcon />
               </Link>
               <Link to="/topics" className="discover-link">
