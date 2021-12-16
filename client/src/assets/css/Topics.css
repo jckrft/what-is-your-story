@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
   grid-gap: 10px;
-  margin: 8rem 10%;
+  margin: 40px 10%;
 }
 
 .topic-card {
@@ -13,4 +13,41 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.topic-links{
+  text-decoration: none;
+  color: black;
+
+}
+
+.topic-edit {
+  background: none!important;
+  border: none;
+  cursor: pointer;
+}
+
+.topic-delete {
+  background: none!important;
+  border: none;
+  cursor: pointer;
+}
+
+.topic-add {
+  background: none!important;
+  border: none;
+  cursor: pointer;
+  font-size: small;
+}
+
+.topic-links:hover {
+  text-decoration: underline;
+}
+
+.add-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  font-size: large;
 }

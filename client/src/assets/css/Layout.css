@@ -1,27 +1,42 @@
-body {
+/* body {
+  background-color:#9d9d9d;
   background-color:#3E94CF;
-}
+} */
 
 nav {
-  /* display:flex;
-  align-items: center; */
-  margin: auto;
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+
 }
 
 .welcome {
   display: flex;
   width:100%;
-
+  height: 350px;
+  background-image: url(https://i.imgur.com/5lnarbF.jpg);
+  background-size:cover;
+	background-repeat: no-repeat;
+  -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
 }
 
 .nav {
   display: flex;
   align-items: center;
-  justify-content:space-between;
+  justify-content:space-evenly;
+  padding-top: 5px;
+}
+
+.css-i4bv87-MuiSvgIcon-root {
+  color: white;
 }
 
 .discover-link {
   text-decoration: none;
+  font-size: large;
+  color: white;
+  font-weight: 900;
 }
 
 .discover-link:hover {
@@ -32,6 +47,9 @@ nav {
   border: none;
   padding: 0!important;
   font-family: 'Lato', sans-serif;
+  font-size: large;
+  font-weight: 900;
+  color: white;
 }
 
 .logout-button:hover{
@@ -39,35 +57,40 @@ nav {
   cursor: pointer;
 }
 
+.landing-links {
+  background-image: url(https://i.imgur.com/5lnarbF.jpg);
+  background-size:cover;
+}
+
+
 .welcome-logo {
-  font-size: 2.5rem;
+  margin: 10px;
+  font-size: 4rem;
   -webkit-text-stroke-width: .01px;
   -webkit-text-stroke-color: rgb(164, 164, 164);
-  animation: pulsate 1.5s infinite alternate;  
-  border: none;
-  border-radius: 1rem;
-  padding: 0.2em;
-  width: 200px;
-  margin: 35px;
   color: #fff;
   text-shadow:
     0 0 7px #fff,
     0 0 10px #fff,
     0 0 21px #fff,
-    0 0 42px #fff,
-    0 0 82px #fff,
-    0 0 92px #fff,
-    0 0 102px #fff,
-    0 0 151px #676767;
+    0 0 42px #bc13fe,
+    0 0 82px #bc13fe,
+    0 0 92px #bc13fe,
+    0 0 102px #bc13fe,
+    0 0 151px #bc13fe;
 }
 
 h1 {
+  animation: pulsate 1.5s infinite alternate;  
+  border: 0.2rem solid #fff;
+  border-radius: 2rem;
+  padding: 0.4em;
   box-shadow: 0 0 .2rem #fff,
-  0 0 .1rem #fff,
-  0 0 1rem #fff,
-  0 0 0.4rem #fff,
-  0 0 1.8rem #fff,
-  inset 0 0 .8 rem #fff; 
+            0 0 .2rem #fff,
+            0 0 2rem #bc13fe,
+            0 0 0.8rem #bc13fe,
+            0 0 2.8rem #bc13fe,
+            inset 0 0 1.3rem #bc13fe; 
 }
 
 @keyframes pulsate {
@@ -75,14 +98,14 @@ h1 {
   100% {
 
       text-shadow:
-      0 0 4px #fff,
-      0 0 11px #fff,
-      0 0 19px #fff,
-      0 0 40px #fff,
-      0 0 80px #fff,
-      0 0 90px #fff,
-      0 0 100px #fff,
-      0 0 150px #fff;
+      0 0 4px rgb(2, 2, 2),
+      0 0 11px rgb(181, 144, 144),
+      0 0 19px rgb(0, 0, 0),
+      0 0 40px #bc13fe,
+      0 0 80px #bc13fe,
+      0 0 90px #bc13fe,
+      0 0 100px #bc13fe,
+      0 0 150px #bc13fe;
   
   }
   
@@ -92,11 +115,11 @@ h1 {
     0 0 2px #fff,
     0 0 4px #fff,
     0 0 6px #fff,
-    0 0 10px #fff,
-    0 0 45px #fff,
-    0 0 55px #fff,
-    0 0 70px #fff,
-    0 0 80px #fff;
+    0 0 10px #bc13fe,
+    0 0 45px #bc13fe,
+    0 0 55px #bc13fe,
+    0 0 70px #bc13fe,
+    0 0 80px #bc13fe;
 
 }
 }

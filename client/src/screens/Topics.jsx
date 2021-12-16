@@ -17,18 +17,17 @@ export default function Topics({
 
   return (
     <div>
-      <h3>topics</h3>
+      {/* <h3>topics</h3> */}
       <div className="topic-container">
         {topics.map((topic) => (
           <div key={topic.id} className="topic-card">
-            <Link to={`/topics/${topic.id}`}>
-              <p>{topic.topic}</p>
+            <Link to={`/topics/${topic.id}`} className="topic-links">
+              <p className="topics">{topic.topic}</p>
             </Link>
             {currentUser?.id === topic.user_id && (
-              <>
-                {/* <TopicEdit /> */}
-
+              <div className="topic-buttons">
                 <button
+                  className="topic-edit"
                   onClick={() => {
                     setOpen(true);
                     setSelectedTopic(topic);
@@ -36,16 +35,18 @@ export default function Topics({
                 >
                   <EditIcon />
                 </button>
-                <button onClick={() => handleTopicDelete(topic.id)}>
+                <button
+                  className="topic-delete"
+                  onClick={() => handleTopicDelete(topic.id)}>
                   <DeleteIcon />
                 </button>
-              </>
+              </div>
             )}
           </div>
         ))}
 
-        <Link to="/topics/new">
-          <button><AddIcon /></button>
+        <Link to="/topics/new" className="add-link">
+          <button className="topic-add"><AddIcon /></button>
         </Link>
         <TopicEdit
           handleTopicUpdate={handleTopicUpdate}

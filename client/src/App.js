@@ -59,26 +59,29 @@ function App() {
           {/* <Route path='/'>
           <Landing />
         </Route> */}
-          <Route path="/signin"></Route>
+          {/* <Route path="/signin"></Route>
           <Route path="/signup">
             <SignUp handleRegister={handleRegister} />
-          </Route>
+          </Route> */}
 
           <Route path="/">
             <MainContainer currentUser={currentUser} />
           </Route>
         </Layout>
       </Switch>
+      <div className="landing-login">
       <SignIn
         handleLogin={handleLogin}
         open={loginOpen}
         handleClose={() => setLoginOpen(false)}
       />
       <SignUp
+        className='sign-up'
         handleRegister={handleRegister}
         open={registerOpen}
         handleClose={() => setRegisterOpen(false)}
-      />
+        />
+        </div>
     </div>
   );
 }

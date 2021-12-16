@@ -9,7 +9,7 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 export default function Layout(props) {
   const { currentUser, handleLogout, setLoginOpen, setRegisterOpen } = props;
   return (
-    <div>
+    <div className="landing-login">
       {currentUser ? (
         <div className="welcome">
           <nav>
@@ -29,7 +29,7 @@ export default function Layout(props) {
           </nav>
         </div>
       ) : (
-        <div>
+        <div className="landing-links">
           <a
             href="#"
             onClick={(e) => {
