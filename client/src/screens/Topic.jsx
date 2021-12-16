@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom';
 import { getOneTopic } from '../services/topics'
+import '../assets/css/Topic.css'
 
 export default function Topic({currentUser}) {
   const [topic, setTopic] = useState(null);
@@ -25,9 +26,10 @@ export default function Topic({currentUser}) {
     <div>
       <h3>{topic?.topic}</h3>
       {topic?.responses.map(response => (
-        <div>
-          <p>{response.response}</p>
-          <p>{response.user.username}</p>
+        <div className='topic-responses'>
+          <p className='response-card'>{response.response}</p>
+          <br />
+          <em>written by: {response.user.username}</em>
         </div>
       ))}
       <Link to={`/topics/${topic?.id}/responses/new`}>

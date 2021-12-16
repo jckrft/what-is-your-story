@@ -38,12 +38,11 @@ export default function ResponseCreate() {
           id={"response"}
           fullWidth
           multiline
-          rows={4}
           variant="standard"
           value={response}
           onChange={handleChange}
         />
-        <Button>submit</Button>
+        <button className="response-create-button">submit</button>
       </form>
     </div>
   );

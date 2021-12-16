@@ -62,6 +62,28 @@ nav {
   background-size:cover;
 }
 
+.signin-link {
+  text-decoration: none;
+  cursor: pointer;
+  font-size: large;
+  color: black;
+}
+
+.signin-link:hover {
+  text-decoration: underline;
+}
+
+.signup-link {
+  text-decoration: none;
+  cursor: pointer;
+  font-size: large;
+  color: black;
+}
+
+.signup-link:hover {
+  text-decoration: underline;
+}
+
 
 .welcome-logo {
   margin: 10px;
@@ -125,6 +147,11 @@ h1 {
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+
+    .welcome-logo {
+    font-size: 3rem;
+  }
+
   .welcome {
     background-image: url(https://i.imgur.com/5lnarbF.jpg);
     background-size:cover;

@@ -2,6 +2,7 @@ import './Landing.css'
 import head from '../../assets/images/head.png'
 import heart from '../../assets/images/heart.png'
 import typing from '../../assets/images/typing.png'
+import Footer from '../../components/Footer'
 import { Link } from 'react-router-dom'
 
 export default function Landing() {
@@ -26,7 +27,8 @@ export default function Landing() {
         <img src={heart} alt='heart' />
         <p>save your past work in your account, and browse other user's work</p>
         </div>
-        </div>
+      </div>
+      <Footer />
     </div>
   )
 }

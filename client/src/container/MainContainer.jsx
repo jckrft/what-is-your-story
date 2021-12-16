@@ -10,6 +10,7 @@ import MyResponses from '../screens/MyResponses';
 import ResponseCreate from '../screens/ResponseCreate';
 import ResponseEdit from '../screens/ResponseEdit';
 import Landing from '../screens/landing/Landing';
+import Footer from '../components/Footer';
 
 
 export default function MainContainer({currentUser}) {
@@ -113,6 +114,7 @@ export default function MainContainer({currentUser}) {
         <Route path='/'>
           <Landing />
         </Route>
+        <Footer />
       </Switch>
     </div>
   )

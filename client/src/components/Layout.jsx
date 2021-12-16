@@ -15,7 +15,10 @@ export default function Layout(props) {
           <nav>
             <h1 className="welcome-logo">what is your story?</h1>
             <div className="nav">
-              <Link to={`/saved/${currentUser.username}`}className="account-icon">
+              <Link
+                to={`/saved/${currentUser.username}`}
+                className="account-icon"
+              >
                 <AccountCircleIcon />
               </Link>
               <Link to="/topics" className="discover-link">
@@ -27,6 +30,7 @@ export default function Layout(props) {
               </button>
             </div>
           </nav>
+
         </div>
       ) : (
         <div className="landing-links">
@@ -36,6 +40,7 @@ export default function Layout(props) {
               e.preventDefault();
               setLoginOpen(true);
             }}
+            className="signin-link"
           >
             sign in |{" "}
           </a>
@@ -45,6 +50,7 @@ export default function Layout(props) {
               e.preventDefault();
               setRegisterOpen(true);
             }}
+            className="signup-link"
           >
             sign up{" "}
           </a>
@@ -57,7 +63,7 @@ export default function Layout(props) {
         </nav>
       ) : null} */}
       {props.children}
-      <Footer />
+
     </div>
   );
 }
