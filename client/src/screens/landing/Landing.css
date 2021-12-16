@@ -141,6 +141,12 @@ h1 {
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
 
+  .landing {
+    background-image: url(https://i.imgur.com/Q2LyRkU.jpg);
+    background-size:140%;
+    background-repeat:repeat;
+  }
+
   h1 {
     font-size: 29px;
     border: 0.1rem solid #fff;
@@ -167,12 +173,17 @@ h1 {
     margin-left: auto;
     margin-right: auto; 
     padding-left: 38px;
+    background-image: url(https://i.imgur.com/Q2LyRkU.jpg);
+    background-size:480%;
   }
 
   .inspire {
+    /* width: 200px;
+    height: 230px; */
+    font-size: small;
     width: 50%;
     height: 50%;
-    border-radius: 15%;
+    border-radius: 10%;
   }
 
   .inspire img{
@@ -183,7 +194,8 @@ h1 {
   .write {
     width: 50%;
     height: 50%;
-    border-radius: 15%;
+    font-size: small;
+    border-radius: 10%;
   }
 
   .write img{
@@ -194,7 +206,8 @@ h1 {
   .save {
     width: 50%;
     height: 50%;
-    border-radius: 15%;
+    font-size: small;
+    border-radius: 10%;
   }
 
   .save img{
@@ -205,6 +218,12 @@ h1 {
 
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+
+  .landing {
+    background-image: url(https://i.imgur.com/Q2LyRkU.jpg);
+    background-size:126%;
+    background-repeat:repeat;
+  }
   h1 {
     font-size: 90px;
     border: 0.1rem solid #fff;
@@ -226,18 +245,20 @@ h1 {
     margin: 50px;
   } */
 
-  /* .description-box {
-    display: block;
+  .description-box {
+    padding-top: 80px;
+    /* display: block;
     margin-left: auto;
     margin-right: auto; 
-    padding-left: 38px;
-  } */
+    padding-left: 38px; */
+  }
 
   .inspire {
     width: 300px;
-    height: 275px;
-    border-radius: 12%;
-    margin: 30px;
+    height: 250px;
+    border-radius: 10%;
+    margin: 10px;
+    margin-left: 20px;
   }
 
   /* .inspire img{
@@ -247,9 +268,9 @@ h1 {
 
   .write {
     width: 300px;
-    height: 275px;
-    border-radius: 12%;
-    margin: 30px;
+    height: 250px;
+    border-radius: 10%;
+    margin: 10px;
   }
 /* 
   .write img{
@@ -259,9 +280,10 @@ h1 {
 
   .save {
     width: 300px;
-    height: 275px;
-    border-radius: 12%;
-    margin: 30px;
+    height: 250px;
+    border-radius: 10%;
+    margin: 10px;
+    margin-right: 20px;
   }
 
   /* .save img{
